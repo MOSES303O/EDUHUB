@@ -1,0 +1,10 @@
+{% extends "eduapp/base.html" %} 
+
+{% block content %}
+  <h1>Select Your Subjects</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "eduapp/base.html" %} 
+{% block content %}
+<header>
+    <div class="text-center">
+
+    <h1>OCHIENGS ENTERPRISE</h1>
+    <br>
+     <h4>Your Educational Content Hub</h4>
+     <br>
+     <P>Discover a world of knowledge with OpenEducation.Our reputable system it's just tailored for a good future career guide</P>
+     <hr>
+     <a class="btn btn-info" type="button" href="{% url 'subject_selection' %}">EXPLORE COURSES</a>
+    </div>
+    <div class="features">
+        <div class="feature">
+            <h3>Customized Responses</h3>
+            <p>Get instant ,accurate response of COURSES answers tailored just for your needs and qualifications</p>
+        </div>
+        <div class="feature">
+            <h3>Vast Knowledge Base</h3>
+            <p>Access all courses offered by different institutions and their qualifications within seconds</p>
+        </div>
+    </div>
+   </main>
+   <footer>@copyright 2024 OCHIENGS ENTERPRISE, ALL RIGHTS RESERVED.</footer>
+
+{% endblock content %}
