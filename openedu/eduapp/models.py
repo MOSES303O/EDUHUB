@@ -1,4 +1,3 @@
-import uuid
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 
@@ -57,27 +56,20 @@ class UniversityList(models.Model):
         verbose_name_plural="universities"
 class CourseDetail(models.Model):
     id=models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,unique=True)
     university_established=models.PositiveIntegerField(default=0)
     details=models.TextField(default='tttt')
     class Meta:
         ordering=['name']
-"""
-class Courses(models.Model):
-    id = models.UUIDField(editable=False,default=uuid.uuid4, primary_key=True)
-    universityList=models.ForeignKey(UniversityList,on_delete=models.CASCADE,related_name='course')
-    name = models.CharField(max_length=200)
-    coursecode=models.PositiveIntegerField(default=0,unique=True)
-    details=models.OneToOneField(CourseDetail,on_delete=models.SET_NULL,null=True,blank=True)
+class Course(models.Model):
+    coursecode=models.BigIntegerField(unique=True)
+    university=models.ForeignKey(UniversityList,on_delete=models.CASCADE)
+    name=models.CharField(max_length=200)
+    requirement=models.CharField(max_length=200,default='ttt')
+    code=models.ForeignKey(CourseDetail,on_delete=models.CASCADE)
+    cf_2021=models.DecimalField(max_digits=5,decimal_places=3)
+    cf_2022=models.DecimalField(max_digits=5,decimal_places=3)
+
     class Meta:
-        ordering=['name']    
-        unique_together=('universityList','name')
-
-class CourseRequirement(models.Model):
-    course=models.ForeignKey(Courses,on_delete=models.CASCADE)
-    subjects=models.TextField()
-    cluster_wights21=models.DecimalField(max_digits=5,decimal_places=3)
-    cluster_wights22=models.DecimalField(max_digits=5,decimal_places=3)
-    #details=models.TextField(default='tttt') 
-
-"""   
+        unique_together=('code','name')
+        ordering=['name']

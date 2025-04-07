@@ -1,0 +1,43 @@
+{% extends "eduapp/base.html" %}
+{% block content %}
+ 
+    
+    <!-- Page Title and Login Button -->
+    <h2 class="page-title">Institutions</h2>
+    <button class="login-btn"><i class="fas fa-lock me-2"></i> LOGOUT</button>
+    
+    <!-- Main Content -->
+    <div class="content-card">
+        <div class="search-box">
+            <div class="show-entries">
+                Show                 
+            </div>
+            <div>
+                Search: <input type="text" class="search-field">
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>COURSE CODE</th>
+                        <th>NAME</th>
+                        <th>UNIVERSITY</th>
+                        <th>QUALIFIED</th>
+                        <th>VIEW</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>265434567</th>
+                        <th>Math computer</th>
+                        <th>>AFRICA INTERNATIONAL UNIVERSITY</th>
+                        <th>YES</th>
+                        <th><a href="">VIEW</a></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

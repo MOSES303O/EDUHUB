@@ -1,0 +1,78 @@
+
+:root {
+    --primary-color: #f79275;
+    --secondary-color: #485465;
+    --light-bg: #f2f4f6;
+}
+
+.page-title {
+    margin: 20px;
+    color: #485465;
+    font-weight: 500;
+}
+
+.login-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    float: right;
+    margin: 20px;
+}
+
+.content-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    font-weight: 600;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-box {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show-entries {
+    display: flex;
+    align-items: center;
+}
+
+.show-entries select {
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.search-field {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 200px;
+}

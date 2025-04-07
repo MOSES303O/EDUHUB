@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Subject, Grade, TempSelection
+from .models import Subject, Grade, TempSelection,Course
 from .forms import SubjectSelectionForm
 
 class IndexView(View):
@@ -63,13 +63,12 @@ class ResultsView(View):
         return render(request, 'eduapp/results.html', {
             'results': results
         })
-"""
-class RecommendedViews(View):
-    def get(request):
-        courses=Courses.objects.all()
-        return render(request,'eduapp/courses.htnl')
 
-#
+class RecommendedViews(View):
+    def get(self,request):
+        return render(request, 'eduapp/COURSES.html')
+
+"""
 def processing_view(request):
     session_key = request.session.session_key
     selections = TempSelection.objects.filter(session_key=session_key)

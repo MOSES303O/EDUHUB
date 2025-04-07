@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subject, Grade, TempSelection,UniversityList,CourseDetail
+from .models import Subject, Grade, TempSelection,UniversityList,CourseDetail,Course
 
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
@@ -18,14 +18,13 @@ class UniversityAdmin(admin.ModelAdmin):
     #ordering='name'
     #  """
   
-"""
-@admin.register(Courses)
+@admin.register(Course)
 class CoursesAdmin(admin.ModelAdmin):
-    list_display=('id','name','universityList','coursecode')
-    search_fields=('name','universityList')
+    list_display=('coursecode','name','university','coursecode')
+    search_fields=('name','university','coursecode')
     #ordering=('name')
 
-
+"""
 @admin.register(CourseRequirement)
 class courserequirements(admin.ModelAdmin):
     list_display=('course','subjects','cluster_wights21','cluster_wights22')
@@ -35,5 +34,5 @@ class courserequirements(admin.ModelAdmin):
 @admin.register(CourseDetail)
 class SchoolAdmin(admin.ModelAdmin):
     list_display=('name','university_established')
-    search_fields=('name','university_name')
+    search_fields=('id','name')
     #ordering=('name')

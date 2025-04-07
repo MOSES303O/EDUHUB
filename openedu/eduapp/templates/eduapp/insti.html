@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUCCPS | Institutions</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #f79275;
+            --secondary-color: #485465;
+            --light-bg: #f2f4f6;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            font-family: Arial, sans-serif;
+        }
+        
+        .top-bar {
+            background-color: #1c2331;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .browser-tabs {
+            display: flex;
+            background-color: #1c2331;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .tab {
+            padding: 5px 15px;
+            margin-right: 10px;
+            border-radius: 5px 5px 0 0;
+            background: #1c2331;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tab i {
+            margin-right: 5px;
+        }
+        
+        .nav-bar {
+            background-color: #1c2331;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-btn {
+            color: white;
+            background: none;
+            border: none;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .url-bar {
+            flex-grow: 1;
+            background-color: #2c3341;
+            border-radius: 20px;
+            padding: 5px 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .url-text {
+            margin-left: 10px;
+            color: white;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+        
+        .nav-actions button {
+            color: white;
+            background: none;
+            border: none;
+            font-size: 18px;
+            margin-left: 15px;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            padding: 15px;
+            margin-top: 125px; /* Adjust based on top bar height */
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            max-height: 50px;
+        }
+        
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .page-title {
+            margin: 20px;
+            color: #485465;
+            font-weight: 500;
+        }
+        
+        .login-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 5px;
+            float: right;
+            margin: 20px;
+        }
+        
+        .content-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .show-entries {
+            display: flex;
+            align-items: center;
+        }
+        
+        .show-entries select {
+            margin: 0 5px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .search-field {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+        
+        .footer-notice {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #1c2331;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Browser Top Bar -->
+    <div class="top-bar">
+        <div class="d-flex justify-content-between align-items-center px-3">
+            <div>4:58 PM</div>
+            <div>
+                <i class="fas fa-alarm-clock"></i>
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Browser Tabs -->
+    <div class="browser-tabs">
+        <div class="tab">
+            <i class="fab fa-github"></i> GitHub
+        </div>
+        <div class="tab">
+            <i class="fas fa-file-alt"></i> docs
+        </div>
+        <div class="tab">
+            <i class="fas fa-graduation-cap"></i> stude
+        </div>
+        <div class="tab">
+            <i class="fas fa-cog"></i> tecno
+        </div>
+        <div class="tab">
+            <i class="fas fa-leaf"></i> EcoPi
+        </div>
+        <div class="tab">
+            <i class="fas fa-plus"></i> New
+        </div>
+        <div class="tab">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <button class="nav-btn"><i class="fas fa-home"></i></button>
+        <button class="nav-btn"><i class="fas fa-arrow-left"></i></button>
+        <button class="nav-btn"><i class="fas fa-arrow-right"></i></button>
+        <button class="nav-btn"><i class="fas fa-sync-alt"></i></button>
+        <button class="nav-btn"><i class="fas fa-th"></i></button>
+        <div class="url-bar">
+            <i class="fas fa-lock"></i>
+            <span class="url-text">students.kuccps.net/institutions</span>
+        </div>
+        <div class="nav-actions">
+            <button><i class="fas fa-star"></i></button>
+            <button><i class="fas fa-download"></i></button>
+            <button><i class="fas fa-globe"></i></button>
+            <button>37</button>
+            <button><i class="fas fa-ellipsis-v"></i></button>
+        </div>
+    </div>
+    
+    <!-- Header with Logo -->
+    <div class="header">
+        <img src="/api/placeholder/50/50" alt="KUCCPS Logo" class="logo">
+        <button class="menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+    
+    <!-- Page Title and Login Button -->
+    <h2 class="page-title">Institutions</h2>
+    <button class="login-btn"><i class="fas fa-lock me-2"></i> LOGIN</button>
+    
+    <!-- Main Content -->
+    <div class="content-card">
+        <div class="search-box">
+            <div class="show-entries">
+                Show 
+                <select>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+                entries
+            </div>
+            <div>
+                Search: <input type="text" class="search-field">
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>KEY</th>
+                        <th>NAME</th>
+                        <th>CATEGORY</th>
+                        <th>INSTITUTION TYPE</th>
+                        <th>PARENT MINISTRY</th>
+                        <th>LOCATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ABERDARE TTC</td>
+                        <td>ABERDARE TEACHERS TRAINING COLLEGE</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>NYANDARUA COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>AIU</td>
+                        <td>AFRICA INTERNATIONAL UNIVERSITY</td>
+                        <td>University</td>
+                        <td>Private</td>
+                        <td>Private Institution</td>
+                        <td>NAIROBI COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>ANU</td>
+                        <td>AFRICA NAZARENE UNIVERSITY</td>
+                        <td>University</td>
+                        <td>Private</td>
+                        <td>Private Institution</td>
+                        <td>KAJIADO COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>ASM TTI</td>
+                        <td>AHMED SHAHAME MWIDANI TECHNICAL TRAINING INSTITUTE</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>MOMBASA COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>ALDAITTI</td>
+                        <td>ALDAI TECHNICAL TRAINING INSTITUTE</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>NANDI COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>AU</td>
+                        <td>ALUPE UNIVERSITY</td>
+                        <td>University</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>BUSIA COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>ALUPE UNIVERSITY TVET INSTITUTE</td>
+                        <td>ALUPE UNIVERSITY TVET INSTITUTE</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>University TVET</td>
+                        <td>BUSIA COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>AMIU</td>
+                        <td>AMREF INTERNATIONAL UNIVERSITY</td>
+                        <td>University</td>
+                        <td>Private</td>
+                        <td>Private Institution</td>
+                        <td>NAIROBI COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>ASUMBI TTC</td>
+                        <td>ASUMBI TEACHERS TRAINING COLLEGE</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>HOMA BAY COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>BAHATI IBAS</td>
+                        <td>BAHATI INSTITUTE OF BUSINESS AND ADMINISTRATION STUDIES</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>NAKURU COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>BMA</td>
+                        <td>BANDARI MARITIME ACADEMY</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td></td>
+                        <td>MOMBASA COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>BARINGO POLY</td>
+                        <td>BARINGO NATIONAL POLYTECHNIC</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>BARINGO COUNTY</td>
+                    </tr>
+                    <tr>
+                        <td>BELGUT TVC</td>
+                        <td>BELGUT</td>
+                        <td>College</td>
+                        <td>Public</td>
+                        <td>Ministry of Education</td>
+                        <td>KERICHO COUNTY</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Bottom Notice -->
+    <div class="footer-notice">
+        Application deadline in:
+    </div>
+    
+    <!-- Floating Chat Button -->
+    <button class="floating-button">
+        <i class="fas fa-comment"></i>
+    </button>
+    
+    <!-- Bootstrap and jQuery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Search functionality
+            $(".search-field").on("keyup", function() {
+                const value = $(this).val().toLowerCase();
+                $("table tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            
+            // Select entries functionality
+            $(".show-entries select").change(function() {
+                const numEntries = $(this).val();
+                // Code to adjust number of entries shown would go here
+                console.log("Showing " + numEntries + " entries");
+            });
+            
+            // Login button functionality
+            $(".login-btn").click(function() {
+                alert("Redirecting to login page...");
+            });
+            
+            // Menu button functionality
+            $(".menu-btn").click(function() {
+                alert("Menu would open here");
+            });
+            
+            // Chat button functionality
+            $(".floating-button").click(function() {
+                alert("Chat support would open here");
+            });
+        });
+    </script>
+</body>
+</html>

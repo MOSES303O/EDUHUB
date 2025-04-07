@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmes - KUCCPS</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #f1f5f9;
+      font-family: Arial, sans-serif;
+    }
+    
+    .navbar {
+      background-color: #ff9980;
+      padding: 10px 0;
+    }
+    
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .page-header {
+      margin: 20px 0;
+      font-size: 24px;
+      color: #6c757d;
+    }
+    
+    .login-btn {
+      background-color: #495057;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+    }
+    
+    .search-btn {
+      background-color: #495057;
+      color: white;
+      border: none;
+    }
+    
+    .filter-label {
+      background-color: #ff9980;
+      color: white;
+      padding: 10px;
+      border-radius: 4px 0 0 4px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .filter-select {
+      border-radius: 0 4px 4px 0;
+      border: 1px solid #ced4da;
+    }
+    
+    .degree-programmes {
+      background-color: white;
+      border-radius: 4px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .degree-header {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e9ecef;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    .cluster-item {
+      padding: 10px 15px;
+      border-bottom: 1px solid #e9ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cluster-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .cluster-count {
+      background-color: #6c757d;
+      color: white;
+      border-radius: 50%;
+      min-width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    
+    .browser-bar {
+      background-color: #212529;
+      color: white;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .browser-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .browser-icon {
+      color: #adb5bd;
+    }
+    
+    .address-bar {
+      display: flex;
+      align-items: center;
+      background-color: #343a40;
+      border-radius: 15px;
+      padding: 4px 10px;
+      margin: 0 15px;
+      flex-grow: 1;
+    }
+    
+    .address-text {
+      color: white;
+      margin-left: 5px;
+    }
+    
+    .tabs {
+      display: flex;
+      background-color: #212529;
+      padding: 5px;
+      border-bottom: 1px solid #343a40;
+    }
+    
+    .tab {
+      color: white;
+      background-color: #343a40;
+      border-radius: 8px 8px 0 0;
+      padding: 5px 10px;
+      font-size: 12px;
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .active-tab {
+      background-color: #495057;
+    }
+    
+    .deadline-bar {
+      background-color: #495057;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #8B0000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Browser UI Mockup -->
+  <div class="browser-bar">
+    <div class="browser-icons">
+      <i class="fa fa-circle browser-icon"></i>
+      <i class="fa fa-arrow-left browser-icon"></i>
+      <i class="fa fa-arrow-right browser-icon"></i>
+      <i class="fa fa-rotate browser-icon"></i>
+    </div>
+    <div class="address-bar">
+      <i class="fa fa-lock"></i>
+      <span class="address-text">students.kuccps.net/programmes</span>
+      <i class="fa fa-star ms-auto browser-icon"></i>
+      <i class="fa fa-download ms-2 browser-icon"></i>
+    </div>
+    <i class="fa fa-language ms-2 browser-icon"></i>
+    <span class="ms-2">38</span>
+    <i class="fa fa-ellipsis-vertical ms-2 browser-icon"></i>
+  </div>
+  
+  <div class="tabs">
+    <div class="tab"><i class="fa fa-file-alt me-1"></i> docs</div>
+    <div class="tab"><i class="fa fa-graduation-cap me-1"></i> stude...</div>
+    <div class="tab"><i class="fa fa-laptop-code me-1"></i> tecno</div>
+    <div class="tab"><i class="fa fa-book me-1"></i> EcoPl...</div>
+    <div class="tab"><i class="fa fa-newspaper me-1"></i> New c...</div>
+    <div class="tab active-tab"><i class="fa fa-university me-1"></i> KU...</div>
+    <div class="tab"><i class="fa fa-sun me-1"></i> KUCC...</div>
+    <div class="tab">+</div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container mt-0">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/api/placeholder/40/40" alt="KUCCPS Logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="page-header">Programmes</h1>
+      <button class="btn login-btn"><i class="fa fa-lock me-1"></i> LOGIN</button>
+    </div>
+    
+    <div class="search-container">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button">
+          <i class="fa fa-filter"></i>
+        </button>
+        <button class="btn search-btn" type="button">
+          <i class="fa fa-search me-1"></i> Search
+        </button>
+      </div>
+    </div>
+    
+    <div class="filter-section">
+      <p>Filter</p>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="filter-label col-4">Type</div>
+            <select class="form-select filter-select">
+              <option selected>--------</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="filter-label col-4" style="background-color: #ffc107;">Group</div>
+            <select class="form-select filter-select">
+              <option selected>--------</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="degree-programmes">
+      <div class="degree-header">DEGREE PROGRAMMES</div>
+      
+      <div class="cluster-list">
+        <div class="cluster-item">
+          <div>Cluster 1 - Law</div>
+          <div class="cluster-count">1</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 2 - Business, Hospitality & Related</div>
+          <div class="cluster-count">68</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 3 - Social Sciences, Media Studies, Fine Arts, Film, Animation, Graphics & Related</div>
+          <div class="cluster-count">98</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 4 - Geosciences & Related</div>
+          <div class="cluster-count">16</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 5 - Engineering, Engineering Technology & Related</div>
+          <div class="cluster-count">72</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 6 - Architecture, Building Construction & Related</div>
+          <div class="cluster-count">22</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 7 - Computing, IT & Related</div>
+          <div class="cluster-count">26</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 8 - Agribusiness & Related</div>
+          <div class="cluster-count">12</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 9 - General Science, Biological Sciences, Physics, Chemistry & Related</div>
+          <div class="cluster-count">32</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 10 - Actuarial Science, Accountancy, Mathematics, Economics, Statistics & Related</div>
+          <div class="cluster-count">31</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 11 - Interior Design, Fashion Design, Textiles & Related</div>
+          <div class="cluster-count">3</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 12 - Sport Science & Related</div>
+          <div class="cluster-count">4</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 13 - Medicine, Health, Veterinary Medicine & Related</div>
+          <div class="cluster-count">41</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 14 - History, Archeology & Related</div>
+          <div class="cluster-count">3</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 15 - Agriculture, Animal Health, Food Science, Nutrition Dietetics, Environmental Sciences, Natural Resources & Related</div>
+          <div class="cluster-count">66</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 16 - Geography & Related</div>
+          <div class="cluster-count">3</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 17 - French & German</div>
+          <div class="cluster-count">3</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 18 - Music & Related</div>
+          <div class="cluster-count">3</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 19 - Education & Related</div>
+          <div class="cluster-count">42</div>
+        </div>
+        <div class="cluster-item">
+          <div>Cluster 20 - Religious Studies, Theology, Islamic Studies & Related</div>
+          <div class="cluster-count">15</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="deadline-bar">
+      Application deadline in:
+    </div>
+  </div>
+  
+  <!-- Chat Button -->
+  <div class="chat-button">
+    <i class="fa fa-comment"></i>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Make cluster items clickable
+    document.querySelectorAll('.cluster-item').forEach(item => {
+      item.addEventListener('click', function() {
+        alert('You clicked: ' + this.querySelector('div:first-child').textContent);
+      });
+    });
+    
+    // Add hover effect
+    document.querySelectorAll('.cluster-item').forEach(item => {
+      item.style.cursor = 'pointer';
+    });
+    
+    // Chat button functionality
+    document.querySelector('.chat-button').addEventListener('click', function() {
+      alert('Chat support is currently offline.');
+    });
+  </script>
+</body>
+</html>
